@@ -1,5 +1,6 @@
 package com.kotlincweb.plugins
 
+import com.kotlincweb.action.Request
 import com.kotlincweb.action.compiler
 import io.ktor.server.application.*
 import io.ktor.server.http.content.*
@@ -16,7 +17,7 @@ fun Application.configureRouting() {
             defaultResource("index.html")
         }
         post("/hello") {
-            val kotlinCode = call.receive<String>()
+            val kotlinCode = call.receive<Request>()
             call.respondText(compiler(kotlinCode))
         }
     }

@@ -1,6 +1,9 @@
 package com.kotlincweb.action
 
-fun compiler(kotlinCode:String): String {
-    return "from compiler: $kotlinCode"
+@kotlinx.serialization.Serializable
+class Request(val code: String, val version: String)
+
+fun compiler(request: Request): String {
+    return "from compiler: ${request.code} ${request.version}"
 }
 
