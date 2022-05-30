@@ -1,12 +1,21 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: app
+  name: nginx-deployment
   labels:
     app: app
 spec:
-  containers:
-    - name: kotlincweb
-      image: registry.cloud.okteto.net/ktrueda/hello-world:latest
-      ports:
-        - containerPort: 8080
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+        - name: app
+          image: registry.cloud.okteto.net/ktrueda/hello-world:latest
+          ports:
+            - containerPort: 8080
