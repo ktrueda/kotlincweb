@@ -14,6 +14,7 @@ fun Application.configureRouting() {
         static("/") {
             staticBasePackage = "static"
             resource("index.html")
+            resource("js/main.js")
             defaultResource("index.html")
         }
         post("/kotlinc") {
