@@ -18,7 +18,7 @@ fun Application.configureRouting() {
         }
         post("/kotlinc") {
             val kotlinCode = call.receive<Request>()
-            call.respondText(compiler(kotlinCode))
+            call.respond(compiler(kotlinCode))
         }
     }
 }
