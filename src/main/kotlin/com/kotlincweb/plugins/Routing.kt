@@ -18,6 +18,7 @@ fun Application.configureRouting() {
             defaultResource("index.html")
         }
         post("/kotlinc") {
+            println("kotlinc called")
             val kotlinCode = call.receive<Request>()
             call.respond(compiler(kotlinCode))
         }

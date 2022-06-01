@@ -11,6 +11,8 @@ fun main() {
     embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
         configureRouting()
         configureSerialization()
-        install(CORS)
+        install(CORS) {
+            allowHost("lb-ktrueda.cloud.okteto.net")
+        }
     }.start(wait = true)
 }
