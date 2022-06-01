@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: app-deployment
   labels:
     app: app
 spec:
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: app
-          image: registry.cloud.okteto.net/ktrueda/hello-world:latest
+          image: ktrueda/kotlincweb
           ports:
             - containerPort: 8080
